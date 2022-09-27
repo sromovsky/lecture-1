@@ -1,10 +1,12 @@
 // How to create variables:
 var x;
-let y;
+x = 5
+
+var a = 'variable a';
+let y = 6;
 
 // How to use variables:
-x = 5;
-y = 6;
 let z = x + y;
 
-console.log(z);
+log(a);
+log(z);
