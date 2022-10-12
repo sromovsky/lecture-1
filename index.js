@@ -1,7 +1,8 @@
 function main() {
+    //uloha1();
     //uloha4();
     //uloha7();
-    uloha1();
+    //uloha8();
 }
 
 function uloha1() {
@@ -72,4 +73,54 @@ function uloha7 () {
 
     log(totalPrice.toFixed(2));
 
+}
+
+function uloha8() {
+    const a = inputA().toString().toUpperCase();
+    const arr = a.split("");
+
+    function cypher(value, index) {
+        switch (arr[index]) {
+            case "B":
+                arr[index]="1";
+                break;
+            case "A":
+                arr[index]="2";
+                break;
+            case "L":
+                arr[index]="3";
+                break;
+            case "T":
+                arr[index]="4";
+                break;
+            case "I":
+                arr[index]="5";
+                break;
+            case "M":
+                arr[index]="6";
+                break;
+            case "O":
+                arr[index]="7";
+                break;
+            case "R":
+                arr[index]="8";
+                break;
+            case "E":
+                arr[index]="9";
+                break;
+            case "S":
+                arr[index]="10";
+                break;
+            case "K":
+                arr[index]="11";
+                break;
+            case "Y":
+                arr[index]="12";
+                break;
+        }
+
+    }
+    arr.forEach(cypher);
+
+    log(arr.join(""));
 }
