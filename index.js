@@ -3,6 +3,7 @@ function main() {
     //uloha4();
     //uloha7();
     //uloha8();
+    uloha8_1();
 }
 
 function uloha1() {
@@ -170,5 +171,33 @@ function uloha8() {
     fromCypher.forEach(decypher);
 
     log(fromCypher.join(""));
+    log(toCypher.join(""));
+}
+
+function uloha8_1() {
+    const a = inputA().toString().toUpperCase();
+    const b = inputB().toString().toUpperCase();
+    const toCypher = a.split("");
+    const cypherKeyInput = b.split(" ");
+
+    function createCypherKey(cypherKeyInput) {
+        let cypherDict = {};
+        cypherKeyInput.forEach(function (item) {
+            const dictItem = item.split('=');
+            cypherDict[dictItem[0].toUpperCase()]=dictItem[1];
+        });
+        return cypherDict;
+    }
+
+    var cypherDict = createCypherKey(cypherKeyInput);
+
+    function cypher(value, index) {
+        if(toCypher[index].toString() in cypherDict) {
+            toCypher[index]=cypherDict[toCypher[index]]
+        }
+    }
+
+    toCypher.forEach(cypher);
+
     log(toCypher.join(""));
 }
