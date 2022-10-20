@@ -77,50 +77,98 @@ function uloha7 () {
 
 function uloha8() {
     const a = inputA().toString().toUpperCase();
-    const arr = a.split("");
+    const b = inputB().toString().toUpperCase();
+    const toCypher = a.split("");
+    const fromCypher = b.split("")
+
 
     function cypher(value, index) {
-        switch (arr[index]) {
+        switch (toCypher[index]) {
             case "B":
-                arr[index]="1";
+                toCypher[index]="1";
                 break;
             case "A":
-                arr[index]="2";
+                toCypher[index]="2";
                 break;
             case "L":
-                arr[index]="3";
+                toCypher[index]="3";
                 break;
             case "T":
-                arr[index]="4";
+                toCypher[index]="4";
                 break;
             case "I":
-                arr[index]="5";
+                toCypher[index]="5";
                 break;
             case "M":
-                arr[index]="6";
+                toCypher[index]="6";
                 break;
             case "O":
-                arr[index]="7";
+                toCypher[index]="7";
                 break;
             case "R":
-                arr[index]="8";
+                toCypher[index]="8";
                 break;
             case "E":
-                arr[index]="9";
+                toCypher[index]="9";
                 break;
             case "S":
-                arr[index]="10";
+                toCypher[index]="10";
                 break;
             case "K":
-                arr[index]="11";
+                toCypher[index]="11";
                 break;
             case "Y":
-                arr[index]="12";
+                toCypher[index]="12";
                 break;
         }
 
     }
-    arr.forEach(cypher);
 
-    log(arr.join(""));
+    function decypher(value, index) {
+        switch (toCypher[index]) {
+            case "1":
+                toCypher[index]="B";
+                break;
+            case "2":
+                toCypher[index]="A";
+                break;
+            case "3":
+                toCypher[index]="L";
+                break;
+            case "4":
+                toCypher[index]="T";
+                break;
+            case "5":
+                toCypher[index]="I";
+                break;
+            case "6":
+                toCypher[index]="M";
+                break;
+            case "7":
+                toCypher[index]="O";
+                break;
+            case "8":
+                toCypher[index]="R";
+                break;
+            case "9":
+                toCypher[index]="E";
+                break;
+            case "10":
+                toCypher[index]="S";
+                break;
+            case "11":
+                toCypher[index]="K";
+                break;
+            case "12":
+                toCypher[index]="Y";
+                break;
+        }
+
+    }
+
+    toCypher.forEach(cypher);
+    fromCypher.forEach(decypher);
+
+    log(fromCypher.join(""));
+    log(toCypher.join(""));
 }
