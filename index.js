@@ -3,7 +3,8 @@ function main() {
     //uloha4();
     //uloha7();
     //uloha8();
-    uloha8_1();
+    //uloha8_1();
+    task8_1();
 }
 
 function uloha1() {
@@ -200,4 +201,15 @@ function uloha8_1() {
     toCypher.forEach(cypher);
 
     log(toCypher.join(""));
+}
+
+function task8_1() {
+    let value = `${inputA().toUpperCase()}`;
+    const cypher = `${inputB().toUpperCase()}`;
+
+    [...cypher].forEach((key, index) => {
+        value = value.replace(key, `${index + 1}`);
+    });
+
+    log(value);
 }
