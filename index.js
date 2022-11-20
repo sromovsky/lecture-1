@@ -3,6 +3,7 @@ function main() {
     //Uloha2();
     //Uloha3();
     //Uloha4();
+    Uloha5();
 }
 
 function Uloha1(){
@@ -91,4 +92,16 @@ function Uloha4() {
     const a = inputA();
     const b = inputB();
     const c = inputC();
+
+    let vysledok = 1;
+    let i = b;
+    do{
+        vysledok*=a;
+        i--;
+    }while(i>0)
+    log(vysledok);
+}
+
+function Uloha5() {
+
 }
