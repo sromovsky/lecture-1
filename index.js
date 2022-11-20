@@ -1,9 +1,10 @@
 function main() {
     //Uloha1();
-    //Uloha2();
     //Uloha3();
     //Uloha4();
-    Uloha5();
+    //Uloha5();
+    //Uloha6();
+    //Uloha7();
 }
 
 function Uloha1(){
@@ -44,32 +45,6 @@ function Uloha1(){
 
 }
 
-function Uloha2() {
-    const a = inputA();
-    const b = inputB();
-    const c = inputC();
-    let i = 0;
-    let j = 0;
-    let zoradene;
-    let string = a.toLowerCase().split(" ").join("")
-
-    const dlzka_s_medz = a.length
-    const dlzka = string.length;
-    log("Upravene " + string);
-    if (dlzka_s_medz > 255) {
-        log("Maximálne 255 znakov, aktuálna dĺžka " + dlzka_s_medz)
-    }
-    for(i;i<dlzka;i++) {
-        for(j;j<dlzka;j++){
-            if(string[i]>string[j]){
-                let tempStr = string[i];
-                string[i] = string[j];
-                string[j] = tempStr;
-            }
-        }
-    }
-}
-
 function Uloha3() {
     const a = inputA();
     const b = inputB();
@@ -95,7 +70,9 @@ function Uloha4() {
 
     let vysledok = 1;
     let i = b;
-    do{
+    if (isNaN(a) || isNaN(i)) {
+        log("Nesprávny tvar, zadajte číslo");
+    }else do{
         vysledok*=a;
         i--;
     }while(i>0)
@@ -103,5 +80,70 @@ function Uloha4() {
 }
 
 function Uloha5() {
+    const a = inputA();
+    const b = inputB();
+    const c = inputC();
+    let x = 0;
+    let y = 1;
+    let i = a;
+    let j = 0;
+    let temp;
+    let vysledok = [];
+    if (isNaN(a)) {
+        log("Nesprávny tvar, zadajte číslo");
+    }else do{
+        temp = y
+        y = x + y;
+        vysledok[j] = x;
+        x = temp;
+        i--;
+        j++;
+    }while(i > 0)
+    log(vysledok);
+}
 
+function Uloha6() {
+    const a = inputA();
+    const b = inputB();
+    const c = inputC();
+    let i = a;
+    let vysledok = 1;
+    if (isNaN(a)) {
+        log("Nesprávny tvar, zadajte číslo");
+    }else {
+        for(;i>0;i--){
+            vysledok*=i;
+        }
+        log(vysledok);
+    }
+}
+
+function Uloha7() {
+    const a = inputA();
+    const b = inputB();
+    const c = inputC();
+    let cena_zak = 1.50;
+    let cena_mimo;
+    let cena_km;
+    let cak_min = (10 / 60);
+    let cena = 0;
+    let znecistenie;
+    if (isNaN(a) || isNaN(b)) {
+        log("Nesprávny tvar, zadajte číslo");
+    } else {
+        if (a > 5) {
+            cena_mimo = (a - 5);
+            cena_mimo = (cena_mimo * 0.75);
+            cena_km = cena_zak + cena_mimo;
+        }
+        if (c == "a") {
+            znecistenie = 20;
+            cena = cena_km + (cak_min * b) + znecistenie;
+            log((Math.round((cena + Number.EPSILON) * 100) / 100) + "( " + cena_zak + " + " + cena_mimo + "*0.75 " + "+" + b + "*10/60 " + "+ " + znecistenie + ")");
+        } else if (c == "n"){
+            znecistenie = 0;
+            cena = cena_km + (cak_min * b) + znecistenie;
+            log((Math.round((cena + Number.EPSILON) * 100) / 100) + "( " + cena_zak + " + " + cena_mimo + "*0.75 " + "+" + b + "*10/60 " + "+ " + znecistenie + ")");
+        }else log("Zadajte v C možnosť a/n")
+    }
 }
