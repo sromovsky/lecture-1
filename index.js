@@ -1,7 +1,8 @@
 function main() {
     //Uloha1();
     //Uloha2();
-    Uloha3();
+    //Uloha3();
+    //Uloha4();
 }
 
 function Uloha1(){
@@ -72,11 +73,22 @@ function Uloha3() {
     const a = inputA();
     const b = inputB();
     const c = inputC();
-    let splitString = a.toLowerCase().split(" ")
-    let reverseArray = splitString.reverse();
-    log(reverseArray);
-       // if(reverseArray === a.join('').reverse()){
-          //  log("Palindrom")
-       // }
-       // else log("Nie je palindrom")
+    let a_spoj = a.toLowerCase().split(" ").join("")
+    let i = (a_spoj.length - 1)
+    let opak = [];
+    for(let j = 0; i>=0 ;i--){
+        opak[j] = a_spoj[i];
+        j++;
+   }
+    let opak_final = opak.join("");
+    if(a_spoj == opak_final)
+        log("Je to palindrom");
+    else
+        log("Nie je to palindrom");
+}
+
+function Uloha4() {
+    const a = inputA();
+    const b = inputB();
+    const c = inputC();
 }
